@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Health Program</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Create New Health Program</h2>
+      <form id="programForm" action="/create_program" method="post">
+        <input
+          type="text"
+          name="program_name"
+          placeholder="e.g., HIV, TB, Malaria"
+          required
+        />
+        <button type="submit">Create Program</button>
+      </form>
+      <h3>Programs Created</h3>
+      <ul>
+        {% for program in programs %}
+        <li>{{ program.name }}</li>
+        {% else %}
+        <li>No programs created yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

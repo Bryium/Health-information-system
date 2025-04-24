@@ -1,0 +1,138 @@
+/* General body styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+/* home styling(index) */
+/* Container for centering the content */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+.container-index {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Header styling */
+header h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Call-to-action section */
+.cta-index {
+  margin-top: 30px;
+}
+
+/* Button Styling */
+.btn-index {
+  text-decoration: none;
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-index:hover {
+  background-color: #45a049;
+}
+
+.btn-index:focus {
+  outline: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container-index {
+    padding: 30px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .btn-index {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* Program Creation form(Create) */
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+form {
+  margin-bottom: 30px;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #45a049;
+}
+.programs-list {
+  margin-top: 30px;
+}
+.programs-list h3 {
+  font-size: 20px;
+  color: #333;
+}
+.programs-list ul {
+  list-style: none;
+  padding: 0;
+}
+.programs-list li {
+  font-size: 18px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+} /* Toastify styling */
+.toastify {
+  background-color: #4caf50;
+  color: white;
+}
