@@ -277,3 +277,52 @@ button {
   text-align: center;
   color: #b5b5b5;
 }
+
+/* search section */
+.search-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.search-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Use flexbox to align input and button */
+.search-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-container h3 {
+  text-align: center;
+}
+
+.search-container input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  width: 80%;
+}
+
+.search-container button:hover {
+  background-color: #45a049;
+}
+
+.flash-message {
+  color: red;
+  font-weight: bold;
+}

@@ -56,12 +56,13 @@ def register_client():
         db.session.commit()
 
         
-        flash('Client registered successfully!', 'success')
-        return redirect(url_for('main.view_client', client_id=new_client.id))
+        return redirect(url_for('main.view_client', client_id=new_client.id, message="Client registered successfully!"))
+
 
     
     programs = HealthProgram.query.all()
-    return render_template('register_client.html', programs=programs)
+    message = request.args.get('message')  
+    return render_template('register_client.html', programs=programs, message=message)
 
 # Route for viewing a client's profile
 @main_bp.route('/client/<int:client_id>', methods=['GET'])
@@ -83,8 +84,9 @@ def search_client():
             return redirect(url_for('main.view_client', client_id=client.id))
 
         
-        flash('Client not found!', 'danger')
-        return redirect(url_for('main.search_client'))
+        
+        return redirect(url_for('main.search_client', message='Client not found!'))
 
-    return render_template('search_client.html')
+    message = request.args.get('message')  
+    return render_template('search_client.html', message=message)
 
