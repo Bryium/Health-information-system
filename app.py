@@ -3,6 +3,9 @@ from flask_migrate import Migrate
 from models import db
 from config import Config
 import routes
+from api import api_bp
+
+
 
 
 def create_app():
@@ -11,8 +14,11 @@ def create_app():
     db.init_app(app)  
     Migrate(app, db)  
 
-    # Register the blueprint 
+    # Register the blueprint(for web routes)
     app.register_blueprint(routes.main_bp)
+
+     # Register the API blueprint(for the API routes)
+    app.register_blueprint(api_bp)
 
     return app  
 
