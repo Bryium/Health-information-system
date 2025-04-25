@@ -68,3 +68,23 @@ def register_client():
 def view_client(client_id):
     client = Client.query.get_or_404(client_id)
     return render_template('view_client.html', client=client)
+
+@main_bp.route('/search-client', methods=['GET', 'POST'])
+def search_client():
+    if request.method == 'POST':
+        # Get the client name from the form
+        client_name = request.form.get('client_name')
+
+        # Query the database to find the client by name
+        client = Client.query.filter(Client.client_name.ilike(f'%{client_name}%')).first()
+
+        # If a client is found, redirect to their profile page
+        if client:
+            return redirect(url_for('main.view_client', client_id=client.id))
+
+        # If no client is found, show a message (optional)
+        flash('Client not found!', 'danger')
+        return redirect(url_for('main.search_client'))
+
+    return render_template('search_client.html')
+
