@@ -8,11 +8,20 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
     <div class="container">
       <h2>Register New Client</h2>
-      <form id="registerForm" action="{{ url_for('main.register_client') }}" method="post">
+      <form
+        id="registerForm"
+        action="{{ url_for('main.register_client') }}"
+        method="post"
+      >
         <input
           type="text"
           name="client_name"
@@ -36,16 +45,19 @@
         <h3>Select Health Program(s)</h3>
         <div class="programs-container">
           {% for program in programs %}
-            <div class="program-item">
-              <label class="program-name">{{ program.name }}</label>
-              <input type="checkbox" name="programs" value="{{ program.id }}" />
-            </div>
+          <div class="program-item">
+            <label class="program-name">{{ program.name }}</label>
+            <input type="checkbox" name="programs" value="{{ program.id }}" />
+          </div>
           {% endfor %}
         </div>
 
         <button type="submit">Register Client</button>
       </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

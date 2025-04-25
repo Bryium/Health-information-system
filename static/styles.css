@@ -198,3 +198,82 @@ button {
 .program-item input {
   transform: scale(1.2);
 }
+
+/* Profile section */
+.profile-1 {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.profile-container {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.profile-header h1 {
+  color: #2d2d2d;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.client-info {
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item .label {
+  font-weight: bold;
+  color: #555;
+}
+
+.info-item .value {
+  color: #777;
+}
+
+.programs-section h2 {
+  font-size: 1.8em;
+  margin-top: 20px;
+  color: #333;
+}
+
+.program-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1.1em;
+}
+
+.program-list li {
+  background-color: #e9f7fd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.no-programs {
+  font-size: 1.2em;
+  font-style: italic;
+  text-align: center;
+  color: #b5b5b5;
+}

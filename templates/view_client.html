@@ -3,29 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Client Profile</title>
+    <title>Client Profile</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <h2>Client Profile</h2>
-      <p><strong>Name:</strong> {{ client.client_name }}</p>
-      <p><strong>Age:</strong> {{ client.age }}</p>
-      <p><strong>Gender:</strong> {{ client.gender }}</p>
+    <div class="profile-1">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h1>Client Profile</h1>
+        </div>
 
-      <h3>Enrolled Health Programs:</h3>
-      {% if client.programs %}
-      <ul>
-        {% for program in client.programs %}
-        <li>{{ program.name }}</li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p>No programs enrolled yet.</p>
-      {% endif %}
+        <div class="client-info">
+          <div class="info-item">
+            <span class="label">Name:</span>
+            <span class="value">{{ client.client_name }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Age:</span>
+            <span class="value">{{ client.age }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Gender:</span>
+            <span class="value">{{ client.gender }}</span>
+          </div>
+        </div>
+
+        <div class="programs-section">
+          <h2>Enrolled Health Programs</h2>
+          {% if client.programs %}
+          <ul class="program-list">
+            {% for program in client.programs %}
+            <li>{{ program.name }}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="no-programs">No programs enrolled yet.</p>
+          {% endif %}
+        </div>
+      </div>
     </div>
+    <script src="{{ url_for('static', filename='js/toastify.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
   </body>
 </html>
