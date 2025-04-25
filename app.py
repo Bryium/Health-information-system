@@ -7,27 +7,18 @@ from api import api_bp
 from flask_jwt_extended import JWTManager
 from auth import auth_bp
 
+app = Flask(__name__)
+app.config.from_object(Config)
+
+db.init_app(app)
+Migrate(app, db)
+JWTManager(app)
+
+# Register Blueprints
+app.register_blueprint(routes.main_bp)
+app.register_blueprint(api_bp)
+app.register_blueprint(auth_bp)
 
 
-
-def create_app():
-    app = Flask(__name__)  
-    app.config.from_object(Config)  
-    db.init_app(app)  
-    Migrate(app, db) 
-    JWTManager(app) 
-
-    # Register the blueprint(for web routes)
-    app.register_blueprint(routes.main_bp)
-
-     # Register the API blueprint(for the API routes)
-    app.register_blueprint(api_bp)
-    app.register_blueprint(auth_bp)
-    
-
-    return app  
-
-# Entry point for running the Flask app
 if __name__ == '__main__':
-    app = create_app() 
-    app.run(debug=True) 
+    app.run(debug=True)
