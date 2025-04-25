@@ -164,3 +164,37 @@ button:hover {
 .register-button:focus {
   outline: none;
 }
+
+/* register-new-client */
+
+.programs-container {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.program-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.program-name {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.program-item input {
+  transform: scale(1.2);
+}

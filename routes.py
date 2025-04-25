@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from models import db, HealthProgram
+from models import Client, db, HealthProgram
 
 # Define the blueprint
 main_bp = Blueprint('main', __name__)
@@ -29,3 +29,36 @@ def create_program():
     programs = HealthProgram.query.all()
     message = request.args.get('message')  
     return render_template('create.html', programs=programs, message=message)
+
+# Route for registering a new client
+@main_bp.route('/register-client', methods=['GET', 'POST'])
+def register_client():
+    if request.method == 'POST':
+       
+        client_name = request.form['client_name']
+        age = request.form['age']
+        gender = request.form['gender']
+
+        
+        new_client = Client(client_name=client_name, age=age, gender=gender)
+        db.session.add(new_client)
+
+        
+        selected_programs = request.form.getlist('programs')
+
+       
+        for program_id in selected_programs:
+            program = HealthProgram.query.get(program_id)
+            if program:
+                new_client.programs.append(program)
+
+        
+        db.session.commit()
+
+        
+        flash('Client registered successfully!', 'success')
+        return redirect(url_for('main.view_client', client_id=new_client.id))
+
+    
+    programs = HealthProgram.query.all()
+    return render_template('register_client.html', programs=programs)
