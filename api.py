@@ -2,10 +2,13 @@
 
 from flask import Blueprint, request, jsonify
 from models import db, Client
+from flask_jwt_extended import jwt_required
+
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 @api_bp.route('/search-client', methods=['GET'])
+@jwt_required()
 def api_search_client():
     client_name = request.args.get('client_name', '')
 

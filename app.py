@@ -3,9 +3,9 @@ from flask_migrate import Migrate
 from models import db
 from config import Config
 import routes
-
 from api import api_bp
 from flask_jwt_extended import JWTManager
+from auth import auth_bp
 
 
 
@@ -22,6 +22,7 @@ def create_app():
 
      # Register the API blueprint(for the API routes)
     app.register_blueprint(api_bp)
+    app.register_blueprint(auth_bp)
     
 
     return app  
