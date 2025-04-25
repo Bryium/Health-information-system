@@ -62,3 +62,9 @@ def register_client():
     
     programs = HealthProgram.query.all()
     return render_template('register_client.html', programs=programs)
+
+# Route for viewing a client's profile
+@main_bp.route('/client/<int:client_id>', methods=['GET'])
+def view_client(client_id):
+    client = Client.query.get_or_404(client_id)
+    return render_template('view_client.html', client=client)
