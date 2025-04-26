@@ -49,9 +49,9 @@ def login():
         if not user or not user.check_password(password): 
             return jsonify({'error': 'Invalid credentials'}), 401
 
-        # Token valid for 30 minutes
+        
         access_token = create_access_token(
-            identity=user.id, 
+            identity=str(user.id),  
             fresh=True, 
             expires_delta=timedelta(minutes=30)
         )
