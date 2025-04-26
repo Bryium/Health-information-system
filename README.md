@@ -68,3 +68,16 @@ A web application to manage client health data, enroll them in health programs, 
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/health-information-system.git
+
+2. Navigate into the project directory
+   ```bash
+    cd health-information-system
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+4. Run the application
+   ```bash
+   flask run
+
+   
+
