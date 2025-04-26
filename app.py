@@ -6,9 +6,13 @@ import routes
 from api import api_bp
 from flask_jwt_extended import JWTManager
 from auth import auth_bp
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+
+CORS(app, resources={r"/*": {"origins": "https://health-information-system-snowy.vercel.app"}})
 
 db.init_app(app)
 Migrate(app, db)
